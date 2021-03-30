@@ -1,0 +1,12 @@
+.root
+{
+    -fx-background-color: rgb(0, 238, 255);
+}
+.button
+{
+    -fx-color: darkgreen;
+}
+.ComboBox
+{
+    -fx-color: burlywood;
+}

@@ -1,0 +1,191 @@
+package sample;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.util.Duration;
+import org.w3c.dom.stylesheets.MediaList;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+
+public class Controller {
+
+    private String[] sentences, filenames;
+    public static String[] media_files;
+    public Duration[] _duration;
+    public ArrayList<MediaPlayer> mediaArrayList = new ArrayList<>();
+    public String[][] seachname = new String[10][10], words = new String[10][10];
+
+    private LinkedList<String> Medialist = new LinkedList<String>();
+
+    @FXML
+    private ListView<String> directory_list = new ListView<String>();
+
+    @FXML
+    private Slider seeker_slider;
+
+    @FXML
+    private MediaView player;
+
+    private MediaPlayer mediaPlayer, test_mediaPlayer;
+
+    @FXML
+    private Label player_time;
+
+    @FXML
+    private TextArea text_para;
+
+    @FXML
+    private TextArea text_slide;
+
+    @FXML
+    void slower_button(ActionEvent event) {
+        mediaPlayer.setRate(0.75);
+    }
+
+    @FXML
+    void play_button(ActionEvent event) {
+        mediaPlayer.play();
+        mediaPlayer.setRate(1.0);
+    }
+
+    @FXML
+    void faster_button(ActionEvent event) {
+        mediaPlayer.setRate(1.5);
+    }
+
+    @FXML
+    void stop_button(ActionEvent event) {
+        mediaPlayer.stop();
+    }
+
+    @FXML
+    void pause_button(ActionEvent event) { mediaPlayer.pause();
+    }
+    public void setmedia() {
+        for (int i = 0; i < media_files.length; i++){
+            Media media = new Media(media_files[i]);
+            mediaArrayList.add(i,new MediaPlayer(media));
+        }
+    }
+    public void setTime(){
+        for(int i = 0; i < mediaArrayList.size(); i++){
+           // System.out.println(mediaArrayList.get(i).getTotalDuration());
+        }
+    }
+
+    @FXML
+    void media_directory_button(ActionEvent event) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File media = directoryChooser.showDialog(null);
+        FilenameFilter filenameFilter = new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                String lname = name.toLowerCase();
+                return lname.endsWith(".mp4");
+            }
+        };
+        filenames = media.list(filenameFilter);
+        File[] mediafiles = media.listFiles(filenameFilter);
+        StringBuffer temp = new StringBuffer();
+        for (int i = 0; i < mediafiles.length; i++){
+            temp.append(mediafiles[i].toURI().toString() + " ");
+        }
+        media_files = temp.toString().split(" ");
+        directory_list.getItems().clear();
+        directory_list.getItems().addAll(media_files);
+        //CombineVideo.createOutput(media_files);
+        setmedia();
+        filenameset();
+    }
+
+    public void filenameset(){
+        for(int i = 0; i < filenames.length; i++){
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(filenames[i]);
+            stringBuffer.delete(stringBuffer.length() - 4,stringBuffer.length());
+            filenames[i] = stringBuffer.toString();
+            seachname[i] = filenames[i].split(",");
+        }
+    }
+
+    public void _searcher(){
+        for (int i = 0; i < sentences.length; i++){
+            for (int j = 0; j < words[i].length; j++){
+                for (int k = 0; k < filenames.length; k++){
+                    for (int l = 0; l < seachname[k].length; l++){
+                        if(words[i][j] == seachname[k][l]){
+                            StringBuffer stringBuffer = new StringBuffer();
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @FXML
+    void getTIme(ActionEvent event) {
+        setTime();
+        _searcher();
+    }
+
+
+    @FXML
+    void import_text_button(ActionEvent event) throws FileNotFoundException {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Select a File (*.txt)","*.txt");
+        fileChooser.getExtensionFilters().add(filter);
+        File import_file = fileChooser.showOpenDialog(null);
+        Scanner scanner = new Scanner(import_file);
+        String sentences;
+        StringBuffer buff_sentences = new StringBuffer();
+        while (scanner.hasNext()){
+            sentences = scanner.nextLine() + "\n";
+            buff_sentences.append(sentences);
+        }
+        text_para.setText(buff_sentences.toString());
+    }
+
+    // This function takes string array of sentences and returns string array of words
+
+    // This function generates Sentences out of passage
+    public void _Generator(String passage) {
+        sentences = passage.split("(?<=[a-z])\\.\\s+");
+        for(int i = 0; i < sentences.length; i++){
+            words[i] = sentences[i].split(" ");
+        }
+    }
+
+    @FXML
+    void generate_button(ActionEvent event) {
+        _Generator(text_para.getText());
+        text_slide.setText(sentences[0]);
+        StringBuffer mediaPathnames = new StringBuffer();
+       // String[] filename = media.list();
+       // File mediafilex[] = media.listFiles();
+      //  for (int i = 0; i < words.length; i++) {
+        //    for (int j = 0; j < filename.length;j++) {
+         //       if((words[i] + ".mp4").equals(filename[j])) {
+        //            mediaPathnames.append(mediafilex[j].toURI().toString() + " ");
+
+       //         }
+       //     }
+       // }
+        // Just need to put mediapathnames to a string array
+        Medialist.addAll(Arrays.asList(mediaPathnames.toString().split(" ")));
+        System.out.println(Medialist.get(0));
+    }
+
+
+}

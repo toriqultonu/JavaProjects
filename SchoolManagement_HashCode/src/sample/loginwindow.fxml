@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane prefHeight="436.0" prefWidth="464.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+   <children>
+      <Label layoutX="31.0" layoutY="33.0" prefHeight="33.0" prefWidth="136.0" text="DB Status">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="uName" layoutX="46.0" layoutY="112.0" prefHeight="33.0" prefWidth="107.0" text="UserName: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="pWord" layoutX="46.0" layoutY="165.0" prefHeight="33.0" prefWidth="91.0" text="Password: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" layoutX="179.0" layoutY="111.0" prefHeight="33.0" prefWidth="233.0" promptText="username">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="password" layoutX="179.0" layoutY="163.0" prefHeight="31.0" prefWidth="233.0" promptText="password">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </PasswordField>
+      <ComboBox fx:id="comboBox" layoutX="179.0" layoutY="230.0" prefHeight="33.0" prefWidth="161.0" promptText="Admin/Student" style="-fx-background-color: yellow;" />
+      <Button fx:id="loginbtn" layoutX="175.0" layoutY="296.0" mnemonicParsing="false" onAction="#Login" prefHeight="60.0" prefWidth="168.0" style="-fx-background-color: null;">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@login-button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="dbStatus" layoutX="137.0" layoutY="36.0" prefHeight="27.0" prefWidth="120.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="loginStatus" layoutX="32.0" layoutY="323.0" prefHeight="33.0" prefWidth="120.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <StackPane layoutX="588.0" layoutY="109.0" prefHeight="274.0" prefWidth="436.0" style="-fx-background-color: white;">
+         <children>
+            <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" />
+         </children>
+      </StackPane>
+      <VBox layoutX="588.0" layoutY="382.0" prefHeight="32.0" prefWidth="436.0" style="-fx-background-color: black;">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#OpenFileButton" text="OpenFile" />
+                  <Button mnemonicParsing="false" text="Play" />
+                  <Button mnemonicParsing="false" text="Pause" />
+                  <Button mnemonicParsing="false" text="Stop" />
+                  <Button mnemonicParsing="false" text="&lt;&lt;" />
+                  <Button mnemonicParsing="false" text="&gt;&gt;" />
+                  <Button mnemonicParsing="false" text="Exit" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text layoutX="744.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naration" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <VBox layoutX="588.0" layoutY="545.0" prefHeight="32.0" prefWidth="436.0" style="-fx-background-color: black;">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#generateButtonClick" text="Generate" />
+                  <Button mnemonicParsing="false" onAction="#Savebutton" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#AutoSelectButton" text="Auto Search" />
+                  <Button mnemonicParsing="false" onAction="#Add_media_path" text="Add M" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text layoutX="134.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Directory">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <VBox layoutY="61.0" prefHeight="138.0" prefWidth="373.0" style="-fx-background-color: white;">
+         <children>
+            <ListView fx:id="_Directory" prefHeight="306.0" prefWidth="356.0" />
+         </children>
+      </VBox>
+      <Button layoutX="58.0" layoutY="30.0" mnemonicParsing="false" onAction="#Directory_select" text="Select" />
+      <Button layoutY="30.0" mnemonicParsing="false" onAction="#OpenDirectory" text="Open" />
+      <Pane layoutX="45.0" layoutY="595.0" prefHeight="125.0" prefWidth="935.0" style="-fx-background-color: white;">
+         <children>
+            <Slider majorTickUnit="10.0" minorTickCount="4" prefHeight="125.0" prefWidth="935.0" showTickLabels="true" showTickMarks="true" />
+         </children>
+      </Pane>
+      <Label fx:id="_duration" layoutX="45.0" layoutY="560.0" text="0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <MenuBar layoutX="-6.0" layoutY="-2.0" prefHeight="32.0" prefWidth="1031.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="importbutton" mnemonicParsing="false" onAction="#_importMenuButton" text="Import Text" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox layoutY="246.0" prefHeight="138.0" prefWidth="495.0" style="-fx-background-color: white;">
+         <children>
+            <ListView fx:id="_sentences" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Label layoutX="191.0" layoutY="211.0" text="Sentences">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textarea" layoutX="589.0" layoutY="453.0" prefHeight="92.0" prefWidth="436.0" />
+      <HBox layoutY="438.0" prefHeight="100.0" prefWidth="495.0" style="-fx-background-color: white;">
+         <children>
+            <ListView fx:id="MediaList" prefHeight="100.0" prefWidth="500.0" />
+         </children>
+      </HBox>
+      <Label layoutX="225.0" layoutY="405.0" text="Media">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutY="383.0" mnemonicParsing="false" onAction="#AddMediaButton" text="Add Media" />
+      <Button layoutX="187.0" layoutY="538.0" mnemonicParsing="false" onAction="#Select_media_directory" text="Select Directory" />
+   </children>
+</AnchorPane>

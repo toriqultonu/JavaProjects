@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JAICMM">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../JAICMM" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

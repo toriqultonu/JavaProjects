@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="1608.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <MenuBar onMouseDragged="#fx_mouse_drag" onMousePressed="#fx_mouse_pressed" prefHeight="31.0" prefWidth="1723.0" style="-fx-background-color: #1e2329;" stylesheets="@../sample/Style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#media_directory_button" text="Select Directory" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Tools">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Export">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#fx_Export_BUtton" text="Export" />
+               </items></Menu>
+                <Menu mnemonicParsing="false" text="Help" />
+            </menus>
+        </MenuBar>
+      <HBox alignment="TOP_RIGHT" layoutX="1720.0" prefHeight="31.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #1e2329;" AnchorPane.leftAnchor="1720.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="minimize_button" mnemonicParsing="false" onAction="#fx_minimize_button" prefHeight="95.0" prefWidth="55.0" stylesheets="@Style.css" textFill="WHITE" />
+            <Button fx:id="resize_Button" layoutX="1878.0" layoutY="10.0" mnemonicParsing="false" onAction="#fx_resize_button" prefHeight="40.0" prefWidth="55.0" stylesheets="@Style.css" textFill="WHITE" />
+            <Button fx:id="closeButton" layoutX="1878.0" layoutY="10.0" mnemonicParsing="false" onAction="#fx_close_button" prefHeight="82.0" prefWidth="55.0" stylesheets="@Style.css" textFill="WHITE" />
+         </children>
+      </HBox>
+        <VBox layoutX="14.0" layoutY="401.0" prefHeight="267.0" prefWidth="650.0" style="-fx-background-color: #1c2329;" AnchorPane.leftAnchor="14.0">
+            <children>
+                <ListView fx:id="directory_list" prefHeight="267.0" prefWidth="650.0" style="-fx-background-color: #1c2329;" stylesheets="@Style.css" />
+            </children>
+        </VBox>
+        <HBox layoutX="14.0" layoutY="666.0" prefHeight="25.0" prefWidth="650.0" spacing="5.0" style="-fx-background-color: #1c232b;" AnchorPane.leftAnchor="14.0">
+            <children>
+            <Button mnemonicParsing="false" onAction="#add_video_ts" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="+" textFill="AQUA">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#remove_video_ts" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="-" textFill="AQUA">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            </children>
+        </HBox>
+        <TextArea fx:id="text_para" layoutX="14.0" layoutY="56.0" prefHeight="280.0" prefWidth="650.0" stylesheets="@../sample/Style.css" AnchorPane.leftAnchor="14.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="336.0" prefHeight="25.0" prefWidth="650.0" spacing="5.0" style="-fx-background-color: #1c2329;" AnchorPane.leftAnchor="14.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#import_text_button" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="Import" textFill="AQUA">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+                <Button mnemonicParsing="false" onAction="#generate_button" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="Generate" textFill="AQUA">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            </children>
+        </HBox>
+        <StackPane layoutX="1130.0" layoutY="38.0" prefHeight="421.0" prefWidth="776.0" style="-fx-background-color: #1c2329;" AnchorPane.rightAnchor="14.0">
+            <children>
+                <MediaView fx:id="player" fitHeight="200.0" fitWidth="200.0" />
+            </children>
+        </StackPane>
+        <HBox alignment="CENTER_LEFT" layoutX="1130.0" layoutY="459.0" prefHeight="32.0" prefWidth="776.0" spacing="10.0" style="-fx-background-color: #1c232b;" AnchorPane.rightAnchor="14.0">
+            <children>
+                <Button fx:id="slow" mnemonicParsing="false" onAction="#slower_button" prefWidth="30.0" stylesheets="@Style.css" />
+                <Button fx:id="play" mnemonicParsing="false" onAction="#play_button" stylesheets="@../sample/Style.css" />
+                <Button fx:id="fast" mnemonicParsing="false" onAction="#faster_button" prefHeight="25.0" prefWidth="30.0" stylesheets="@Style.css" />
+                <Button fx:id="stop" mnemonicParsing="false" onAction="#stop_button" stylesheets="@Style.css" />
+                <Button fx:id="pause" mnemonicParsing="false" onAction="#pause_button" stylesheets="@Style.css" />
+            <JFXSlider fx:id="seeker_slider" prefHeight="14.0" prefWidth="527.0" stylesheets="@Style.css" />
+                <Label fx:id="player_time" style="-fx-background-color: baclk;" stylesheets="@Style.css" text="00:00::00:00" textFill="AQUA">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <TitledPane layoutX="677.0" layoutY="38.0" prefHeight="290.0" prefWidth="440.0" stylesheets="@../sample/Style.css" text="Current Slides Videos" AnchorPane.leftAnchor="677.0" AnchorPane.rightAnchor="803.0">
+            <content>
+                <ListView fx:id="fx_selected_videos" prefHeight="86.0" prefWidth="232.0" style="-fx-background-color: #1c2329;" stylesheets="@Style.css" />
+            </content>
+        </TitledPane>
+        <TitledPane layoutX="677.0" layoutY="395.0" prefHeight="290.0" prefWidth="440.0" stylesheets="@../sample/Style.css" text="Current Slides Text" AnchorPane.leftAnchor="677.0" AnchorPane.rightAnchor="803.0">
+            <content>
+                <TextArea fx:id="text_slide" prefHeight="125.0" prefWidth="223.0" style="-fx-background-color: #1c2329; -fx-border-color: #1c2329;" stylesheets="@../sample/Style.css">
+               <font>
+                  <Font size="20.0" />
+               </font></TextArea>
+            </content>
+        </TitledPane>
+        <StackedBarChart fx:id="time_line" categoryGap="20.0" layoutX="838.0" layoutY="-120.0" prefHeight="1920.0" prefWidth="250.0" rotate="90.0" style="-fx-background-color: #1c2329;" stylesheets="@Style.css" AnchorPane.leftAnchor="838.0" AnchorPane.rightAnchor="832.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis minorTickCount="10" side="LEFT" tickLabelFill="AQUA" tickLabelRotation="-90.0" />
+            </yAxis>
+        </StackedBarChart>
+      <TextField fx:id="fx_audio_name" layoutX="1728.0" layoutY="617.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: #1c2329; -fx-border-color: white;" stylesheets="@Style.css" />
+      <Label layoutX="1130.0" layoutY="505.0" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: #1c2329;" text="  Audio List" textFill="AQUA">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="up" layoutX="819.0" layoutY="347.0" mnemonicParsing="false" onAction="#fx_up_button" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #1c2329;" stylesheets="@Style.css" />
+      <JFXButton layoutX="1003.0" layoutY="327.0" onAction="#fx_Combine_Video" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="COMBINE" textFill="AQUA">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <Button layoutX="1728.0" layoutY="655.0" mnemonicParsing="false" onAction="#fxaudiosave" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="Save" textFill="AQUA">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="record_button" layoutX="1716.0" layoutY="511.0" mnemonicParsing="false" onAction="#fxAudiorecord" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: transparent;" stylesheets="@Style.css" textFill="AQUA">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="record_stop_button" layoutX="1805.0" layoutY="527.0" mnemonicParsing="false" onAction="#fxAudiostop" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" stylesheets="@Style.css" text="Stop" textFill="AQUA">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Label layoutX="1728.0" layoutY="597.0" prefHeight="20.0" prefWidth="83.0" style="-fx-background-color: #1c2329;" text="Audio Name" textFill="AQUA">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="35.0" prefHeight="20.0" prefWidth="41.0" style="-fx-background-color: #1c2329;" text=" TEXT " textAlignment="CENTER" textFill="AQUA">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="375.0" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: #1c2329;" text=" Selected Videos" textFill="AQUA">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="down" layoutX="848.0" layoutY="347.0" mnemonicParsing="false" onAction="#fx_down_button" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #1c2329;" stylesheets="@Style.css" />
+      <ListView fx:id="fx_audio_list" layoutX="1130.0" layoutY="544.0" prefHeight="144.0" prefWidth="527.0" style="-fx-background-color: #1c2329;" stylesheets="@Style.css" />
+      <Button layoutX="1655.0" layoutY="581.0" mnemonicParsing="false" onAction="#remove_audio_timeline" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="-" textFill="AQUA">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="1655.0" layoutY="544.0" mnemonicParsing="false" onAction="#add_audio_timeline" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="+" textFill="AQUA">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="1224.0" layoutY="505.0" mnemonicParsing="false" onAction="#audiolist_refresh" prefHeight="38.0" prefWidth="47.0" style="-fx-background-color: #1c2329; -fx-border-color: aqua;" text="69" textFill="AQUA">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="fx_progressbar" layoutX="729.0" layoutY="972.0" prefHeight="38.0" prefWidth="159.0" textFill="WHITE">
+         <font>
+            <Font size="57.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

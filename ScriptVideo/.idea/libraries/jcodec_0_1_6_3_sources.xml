@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jcodec-0.1.6-3-sources">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../jcodec-0.1.6-3-sources.jar" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../jcodec-0.1.6-3-sources.jar" recursive="false" type="SOURCES" />
+  </library>
+</component>

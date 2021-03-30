@@ -1,0 +1,138 @@
+#play{
+    -fx-background-image: url("Images/playButton.png");
+    -fx-background-size: 70 70;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#fast{
+    -fx-background-image: url("Images/fastbutton.png");
+    -fx-background-size: 50 50;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#slow{
+    -fx-background-image: url("Images/slowButton.png");
+    -fx-background-size: 50 50;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#stop{
+    -fx-background-image: url("Images/stopButton.png");
+    -fx-background-size: 40 40;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#pause{
+    -fx-background-image: url("Images/pauseButton.png");
+    -fx-background-size: 40 40;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#up{
+    -fx-background-image: url("Images/upButton.png");
+    -fx-background-size: 70 70;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#down{
+    -fx-background-image: url("Images/downButton.png");
+    -fx-background-size: 70 70;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#record_button {
+    -fx-background-image: url("Images/record_button.png");
+    -fx-background-size: 50 50;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.list-view .list-cell:even{
+    -fx-background-color: #1c2329;
+    -fx-text-fill: white;
+}
+.list-view .list-cell:odd{
+    -fx-background-color: #1c2329;
+    -fx-text-fill: white;
+}
+.list-view .list-cell:filled:selected:focused, .list-cell:filled:selected{
+    -fx-border-color: aqua;
+}
+.list-view .list-cell:filled:hover{
+    -fx-border-color: aqua;
+}
+.text-area {
+    text-area-background:  #1c2329;
+    -fx-text-fill: white ;
+}
+
+.text-area .content {
+    -fx-background-color: text-area-background ;
+}
+.titled-pane {
+    -fx-text-fill: aqua;
+    -fx-box-border: #1c2329;
+}
+.titled-pane > .title {
+    -fx-background-color: #1c2329;
+}
+.menu .label {
+    -fx-text-fill: aqua;
+}
+.menu-item {
+    -fx-background-color: #1c2329;
+    -fx-box-border: #1c2329;
+}
+.chart-plot-background {
+    -fx-background-color: black;
+}
+#seeker_slider > .colored-track{
+    -fx-background-color: aqua;
+}
+#seeker_slider > .thumb{
+    -fx-background-color: aqua;
+}
+#seeker_slider > .animated-thumb{
+    -fx-background-color: aqua;
+}
+#seeker_slider .slider-value{
+    -fx-fill: black;
+    -fx-stroke: black;
+}
+
+#closeButton{
+    -fx-background-image: url("Images/close.png");
+    -fx-background-size: 12 12;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#closeButton:hover{
+    -fx-background-color: red;
+}
+#resize_Button{
+    -fx-background-image: url("Images/multi-tab.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#resize_Button:hover{
+    -fx-background-color: #AEAEAE;
+}
+#minimize_button{
+    -fx-background-image: url("Images/Minimize.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+#minimize_button:hover{
+    -fx-background-color: #AEAEAE;
+}
